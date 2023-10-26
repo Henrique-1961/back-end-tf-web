@@ -24,6 +24,7 @@ async function selectAlunos() {
 }
 
 async function deleteAluno(id) {
+    if (id == 1) throw new Error("the user 1 can not be deleted");
     const client = await connect();
     const query = "DELETE FROM aluno WHERE id = $1";
     await client.query(query, [id]);
