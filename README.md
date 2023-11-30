@@ -6,7 +6,7 @@ Backend (Fictício) do projeto CGAE - Listas Eletrônicas
 - Henrique Cardoso de Souza
 - Jackson Darley Rocha Santos
 - João Marcos Martins Xavier
-- Ígor Gabriel Sena Matos.
+- Ígor Gabriel Sena Matos
 
 ## Modelo Conceitual do Banco de Dados
 ![modelo conceitual](./db/bd.png)
