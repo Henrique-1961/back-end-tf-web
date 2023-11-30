@@ -49,9 +49,9 @@ router.delete("/aluno/:id", verificarAutenticacao, async (req, res) => {
     }
 });
 
-router.patch("/aluno", verificarAutenticacao, async (req, res) => {
+router.patch("/aluno:id", verificarAutenticacao, async (req, res) => {
     try {
-        const aluno = await selectAluno(req.body.id);
+        const aluno = await selectAluno(req.params.id);
 
         if (aluno.length > 0) {
             await updateAluno(req.body);

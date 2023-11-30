@@ -4,7 +4,6 @@ import {
     selectSignatures,
     selectSignature,
     insertSignature,
-    deleteSignature,
     updateSignature
   } from "../db/vai_volta.js";
   
@@ -35,15 +34,6 @@ router.post("/assinatura", verificarAutenticacao, async (req, res) => {
     try {
         await insertSignature(req.body);
         res.status(201).json({ message: "Assinatura inserida com sucesso!" });
-    } catch (error) {
-        res.status(error.status || 500).json({ message: error.message || "Erro!" });
-    }
-});
-
-router.delete("/assinatura/:id", verificarAutenticacao, async (req, res) => {
-    try {
-        await deleteSignature(req.params.id);
-        res.status(204).json({ message: "Assinatura excluída com sucesso!" });
     } catch (error) {
         res.status(error.status || 500).json({ message: error.message || "Erro!" });
     }

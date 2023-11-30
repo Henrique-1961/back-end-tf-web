@@ -84,7 +84,7 @@ CGAE - Listas Eletrônicas é um projeto com o intuito de digitalizar os sistema
 
 ### Consultar Assinaturas
 - **Descrição:** Traz os dados de todas as assinaturas cadastradas no banco de dados.
-- **Endpoint:** https://tf-04.vercel.app/assinaturas
+- **Endpoint:** https://tf-04.vercel.app/assinatura
 - **Tipo da requisição:** GET
 - **headers:**
 
