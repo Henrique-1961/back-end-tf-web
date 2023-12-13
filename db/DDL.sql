@@ -1,0 +1,69 @@
+CREATE DATABASE `cgae-listas-eletronicas`;
+
+USE `cgae-listas-eletronicas`;
+
+CREATE TABLE aluno (
+    id INT UNSIGNED AUTO_INCREMENT UNIQUE NOT NULL,
+    nome VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    cama INT NOT NULL,
+    quarto INT NOT NULL,
+    serie INT NOT NULL,
+    sexo INT NOT NULL,
+    cidade VARCHAR(255) NOT NULL,
+    responsavel VARCHAR(255) NOT NULL,
+    telefoneResponsavel VARCHAR(30) NOT NULL,
+    ativo BOOLEAN NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE vaiVolta (
+    id INT UNSIGNED AUTO_INCREMENT UNIQUE NOT NULL,
+    aluno INT UNSIGNED NOT NULL,
+    pai INT UNSIGNED,
+    destino VARCHAR(255) NOT NULL,
+    dataSaida DATE NOT NULL,
+    horaSaida TIME NOT NULL,
+    horaChegada TIME NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (pai) REFERENCES vaiVolta(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (aluno) REFERENCES aluno(id) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+CREATE TABLE saida (
+    id INT UNSIGNED AUTO_INCREMENT UNIQUE NOT NULL,
+    aluno INT UNSIGNED NOT NULL,
+    pai INT UNSIGNED,
+    destino VARCHAR(255) NOT NULL,
+    dataSaida DATE NOT NULL,
+    dataChegada DATE NOT NULL,
+    horaSaida TIME NOT NULL,
+    horaChegada TIME NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (pai) REFERENCES saida(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (aluno) REFERENCES aluno(id) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+CREATE TABLE pernoite (
+    id INT UNSIGNED AUTO_INCREMENT UNIQUE NOT NULL,
+    aluno INT UNSIGNED NOT NULL,
+    pai INT UNSIGNED,
+    destino VARCHAR(255) NOT NULL,
+    responsavel VARCHAR(255) NOT NULL,
+    telefoneResponsavel VARCHAR(30) NOT NULL,
+    dataSaida DATE NOT NULL,
+    dataChegada DATE NOT NULL,
+    horaSaida TIME NOT NULL,
+    horaChegada TIME NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (pai) REFERENCES pernoite(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (aluno) REFERENCES aluno(id) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+CREATE TABLE assistente (
+    id INT UNSIGNED AUTO_INCREMENT UNIQUE NOT NULL,
+    nome VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id)
+);

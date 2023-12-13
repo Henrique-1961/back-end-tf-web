@@ -9,7 +9,17 @@ Backend (Fictício) do projeto CGAE - Listas Eletrônicas
 - Ígor Gabriel Sena Matos
 
 ## Modelo Conceitual do Banco de Dados
-![modelo conceitual](./db/bd.png)
+![modelo conceitual](./db/Conceitual.png)
+
+## Modelo Lógico do Banco de Dados
+![modelo lógico](./db/Lógico.png)
+
+## Modelo Físico do Banco de Dados
+[Arquivo SQL do Banco de Dados](./db/DDL.sql)
+
+### Ferramentas Utilizadas 🚀
+- **brModelo** -> Design
+- [**Neon Tech**](https://neon.tech) -> Hospedagem
 
 ## Descrição do projeto
 CGAE - Listas Eletrônicas é um projeto com o intuito de digitalizar os sistemas de controle de saída dos alunos residentes do campus.
