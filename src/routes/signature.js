@@ -32,8 +32,9 @@ router.get("/assinatura/:id", verificarAutenticacao, async (req, res) => {
 
 router.post("/assinatura", verificarAutenticacao, async (req, res) => {
     try {
-        await insertSignature(req.body);
-        res.status(201).json({ message: "Assinatura inserida com sucesso!" });
+        const id = await insertSignature(req.body);
+        if (id === undefined) throw Error("Erro ao cadastrar a assinatura");
+        res.status(201).json({ id: id });
     } catch (error) {
         res.status(error.status || 500).json({ message: error.message || "Erro!" });
     }
@@ -44,7 +45,8 @@ router.patch("/assinatura", verificarAutenticacao, async (req, res) => {
         const signature = await selectSignature(req.body.id);
 
         if (signature.length > 0) {
-            await updateSignature(req.body);
+            const res = await updateSignature(req.body);
+            if (!res) throw Error("Erro ao atualizar a assinatura.");
             res.status(200).json({ message: "Assinatura atualizada com sucesso!" });
         } else res.status(404).json({ message: "Assinatura não encontrada!" });
     } catch (error) {
