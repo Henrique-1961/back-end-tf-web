@@ -39,9 +39,17 @@ CGAE - Listas Eletrônicas é um projeto com o intuito de digitalizar os sistema
 
 ![body](./img/login.png)
 
-- **Usuário default:**
-    - **Email:** hcs@gmail.com
-    - **Senha:** 123
+- **Usuários default:**
+    - **Aluno**
+        ```json
+        "email": "aluno@email",
+        "senha": "aluno123"
+        ```
+    - **Assistente**
+        ```json
+        "email": "admin@email",
+        "senha": "admin123"
+        ```
 
 ### Consultar Alunos
 - **Descrição:** Traz os dados de todos os alunos cadastrados no banco de dados.
