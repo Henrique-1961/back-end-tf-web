@@ -23,8 +23,8 @@ async function deleteSignature(id) {
 
 async function insertSignature(data) {
     const client = await connect();
-    const query = "INSERT INTO pernoite (aluno, destino, dataSaida, horaSaida, horaChegada, dataChegada, telefoneResponsavel, responsavel, pai) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING id";
-    const ob = [data.aluno, data.destino, data.dataSaida, data.horaSaida, data.horaChegada, data.dataChegada, data.telefoneResponsavel, data.responsavel, data.pai];
+    const query = "INSERT INTO pernoite (aluno, destino, dataSaida, horaSaida, horaChegada, dataChegada, telefoneResponsavel, responsavel, pai, ativo) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING id";
+    const ob = [data.aluno, data.destino, data.dataSaida, data.horaSaida, data.horaChegada, data.dataChegada, data.telefoneResponsavel, data.responsavel, data.pai, true];
     const res = await client.query(query, ob);
     return res.rows[0].id;
 }
