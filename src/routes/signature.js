@@ -104,6 +104,10 @@ router.patch("/assinatura/:lista/:id", verificarAutenticacao, async (req, res) =
                 signature = await vaiVolta.selectSignature(req.params.id);
 
                 if (signature.length > 0) {
+                    if (!signature[0].ativo) {
+                        throw Error(404, "Assinatura não encontrada");
+                    }
+
                     const result = await vaiVolta.updateSignature(req.params.id, req.body);
                     if (!result) throw Error("Erro ao atualizar a assinatura.");
                     res.status(200).json({ message: "Assinatura atualizada com sucesso!" });
@@ -114,6 +118,10 @@ router.patch("/assinatura/:lista/:id", verificarAutenticacao, async (req, res) =
                 signature = await daida.selectSignature(req.params.id);
 
                 if (signature.length > 0) {
+                    if (!signature[0].ativo) {
+                        throw Error(404, "Assinatura não encontrada");
+                    }
+
                     const result = await saida.updateSignature(req.params.id, req.body);
                     if (!result) throw Error("Erro ao atualizar a assinatura.");
                     res.status(200).json({ message: "Assinatura atualizada com sucesso!" });
@@ -124,6 +132,10 @@ router.patch("/assinatura/:lista/:id", verificarAutenticacao, async (req, res) =
                 signature = await pernoite.selectSignature(req.params.id);
 
                 if (signature.length > 0) {
+                    if (!signature[0].ativo) {
+                        throw Error(404, "Assinatura não encontrada");
+                    }
+                    
                     const result = await pernoite.updateSignature(req.params.id, req.body);
                     if (!result) throw Error("Erro ao atualizar a assinatura.");
                     res.status(200).json({ message: "Assinatura atualizada com sucesso!" });
