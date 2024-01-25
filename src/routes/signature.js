@@ -104,8 +104,8 @@ router.patch("/assinatura/:lista/:id", verificarAutenticacao, async (req, res) =
                 signature = await vaiVolta.selectSignature(req.params.id);
 
                 if (signature.length > 0) {
-                    const res = await vaiVolta.updateSignature(req.params.id, req.body);
-                    if (!res) throw Error("Erro ao atualizar a assinatura.");
+                    const result = await vaiVolta.updateSignature(req.params.id, req.body);
+                    if (!result) throw Error("Erro ao atualizar a assinatura.");
                     res.status(200).json({ message: "Assinatura atualizada com sucesso!" });
                 } else res.status(404).json({ message: "Assinatura não encontrada!" });
                 return;
@@ -114,8 +114,8 @@ router.patch("/assinatura/:lista/:id", verificarAutenticacao, async (req, res) =
                 signature = await daida.selectSignature(req.params.id);
 
                 if (signature.length > 0) {
-                    const res = await saida.updateSignature(req.params.id, req.body);
-                    if (!res) throw Error("Erro ao atualizar a assinatura.");
+                    const result = await saida.updateSignature(req.params.id, req.body);
+                    if (!result) throw Error("Erro ao atualizar a assinatura.");
                     res.status(200).json({ message: "Assinatura atualizada com sucesso!" });
                 } else res.status(404).json({ message: "Assinatura não encontrada!" });
                 return;
@@ -124,8 +124,8 @@ router.patch("/assinatura/:lista/:id", verificarAutenticacao, async (req, res) =
                 signature = await pernoite.selectSignature(req.params.id);
 
                 if (signature.length > 0) {
-                    const res = await pernoite.updateSignature(req.params.id, req.body);
-                    if (!res) throw Error("Erro ao atualizar a assinatura.");
+                    const result = await pernoite.updateSignature(req.params.id, req.body);
+                    if (!result) throw Error("Erro ao atualizar a assinatura.");
                     res.status(200).json({ message: "Assinatura atualizada com sucesso!" });
                 } else res.status(404).json({ message: "Assinatura não encontrada!" });
                 return;
