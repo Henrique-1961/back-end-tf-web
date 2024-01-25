@@ -33,20 +33,29 @@ CGAE - Listas Eletrônicas é um projeto com o intuito de digitalizar os sistema
 - **body:**
 
 ```json
+{
     "email": "email",
     "senha": "senha"
+}
+   
 ```
 
 - **Usuários default:**
     - **Aluno**
         ```json
-        "email": "aluno@email",
-        "senha": "aluno123"
+        {
+            "email": "aluno@email",
+            "senha": "aluno123"
+        }
+        
         ```
     - **Assistente**
         ```json
-        "email": "admin@email",
-        "senha": "admin123"
+        {
+            "email": "admin@email",
+            "senha": "admin123"
+        }
+        
         ```
 
 ---
@@ -79,11 +88,23 @@ x-access-token: "token"
 - **body:**
 
 ```json
-
+{
+    "nome": "STRING",
+    "email": "STRING",
+    "cama": INT,
+    "quarto": INT,
+    "serie": INT,
+    "sexo": INT,
+    "cidade": "STRING",
+    "responsavel": "STRING",
+    "telefoneresponsavel": "STRING",
+    "ativo": BOOL,
+    "senha": "STRING"
+}
 ```
 
 ---
-### [PATCH] /aluno
+### [PATCH] /aluno/{id}
 - **Descrição:** Atualiza os dados de um aluno cadastrado.
 - **headers:**
 
@@ -94,11 +115,23 @@ x-access-token: "token"
 - **body:**
 
 ```json
-
+{
+    "nome": "STRING",
+    "email": "STRING",
+    "cama": INT,
+    "quarto": INT,
+    "serie": INT,
+    "sexo": INT,
+    "cidade": "STRING",
+    "responsavel": "STRING",
+    "telefoneresponsavel": "STRING",
+    "ativo": BOOL,
+    "senha": "STRING"
+}
 ```
 
 ---
-### [DELETE] /aluno
+### [DELETE] /aluno/{id}
 - **Descrição:** Exclui um aluno cadastrado.
 - **headers:**
 
@@ -151,6 +184,48 @@ pernoite
 x-access-token: "token"
 ```
 
+- **body:**
+
+    - **vai_volta:**
+        ```json
+        {
+            "aluno": 1,
+            "pai": null,
+            "destino": "STRING",
+            "dataSaida": "MM-DD-YYYY",
+            "horaSaida": "HH:MM",
+            "horaChegada": "HH:MM"
+        }
+        ```
+
+    - **saida:**
+        ```json
+        {
+            "aluno": 1,
+            "pai": null,
+            "destino": "STRING",
+            "dataSaida": "MM-DD-YYYY",
+            "dataChegada": "MM-DD-YYYY",
+            "horaSaida": "HH:MM",
+            "horaChegada": "HH:MM"
+        }
+        ```
+
+    - **pernoite:**
+        ```json
+        {
+            "aluno": 1,
+            "pai": null,
+            "destino": "STRING",
+            "dataSaida": "MM-DD-YYYY",
+            "dataChegada": "MM-DD-YYYY",
+            "horaSaida": "HH:MM",
+            "horaChegada": "HH:MM",
+            "telefoneResponsavel": "STRING",
+            "responsavel": "STRING"
+        }
+        ```
+
 - **Observações:**
 Possíveis valores para o parâmetro lista
 
@@ -160,12 +235,7 @@ saida
 pernoite
 ```
 
-- **body:**
-
-```json
-
-```
-
+---
 ### [PATCH] /assinatura/{lista}/{id}
 - **Descrição:** Atualiza os dados de uma assinatura cadastrada.
 - **headers:**
@@ -175,10 +245,45 @@ x-access-token: "token"
 ```
 
 - **body:**
+    - **vai_volta:**
+        ```json
+        {
+            "aluno": 1,
+            "pai": null,
+            "destino": "STRING",
+            "dataSaida": "MM-DD-YYYY",
+            "horaSaida": "HH:MM",
+            "horaChegada": "HH:MM"
+        }
+        ```
 
-```json
+    - **saida:**
+        ```json
+        {
+            "aluno": 1,
+            "pai": null,
+            "destino": "STRING",
+            "dataSaida": "MM-DD-YYYY",
+            "dataChegada": "MM-DD-YYYY",
+            "horaSaida": "HH:MM",
+            "horaChegada": "HH:MM"
+        }
+        ```
 
-```
+    - **pernoite:**
+        ```json
+        {
+            "aluno": 1,
+            "pai": null,
+            "destino": "STRING",
+            "dataSaida": "MM-DD-YYYY",
+            "dataChegada": "MM-DD-YYYY",
+            "horaSaida": "HH:MM",
+            "horaChegada": "HH:MM",
+            "telefoneResponsavel": "STRING",
+            "responsavel": "STRING"
+        }
+        ```
 
 - **Observações:**
 Possíveis valores para o parâmetro lista
