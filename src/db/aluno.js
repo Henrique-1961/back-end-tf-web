@@ -46,10 +46,10 @@ async function selectAluno(id) {
     return res.rows;
 }
 
-async function updateAluno(data) {
+async function updateAluno(id, data) {
     const client = await connect();
     const query = "UPDATE aluno SET nome = $1, email = $2, senha = $3, cidade = $4, responsavel = $5, telefone_responsavel = $6, ativo = $7, pernoite = $8 WHERE id = $9";
-    const aluno = [data.nome, data.email, data.senha, data.cidade, data.responsavel, data.telefone_responsavel, data.ativo, data.pernoite, data.id];
+    const aluno = [data.nome, data.email, data.senha, data.cidade, data.responsavel, data.telefone_responsavel, data.ativo, data.pernoite, id];
     await client.query(query, aluno);
 }
 

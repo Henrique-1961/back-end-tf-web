@@ -49,12 +49,12 @@ router.delete("/aluno/:id", verificarAutenticacao, async (req, res) => {
     }
 });
 
-router.patch("/aluno:id", verificarAutenticacao, async (req, res) => {
+router.patch("/aluno/:id", verificarAutenticacao, async (req, res) => {
     try {
         const aluno = await selectAluno(req.params.id);
 
         if (aluno.length > 0) {
-            await updateAluno(req.body);
+            await updateAluno(req.params.id, req.body);
             res.status(200).json({ message: "Aluno atualizado com sucesso!" });
         } else res.status(404).json({ message: "Aluno não encontrado!" });
     } catch (error) {
