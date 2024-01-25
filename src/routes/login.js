@@ -1,6 +1,7 @@
 import { Router } from "express";
 import jwt from "jsonwebtoken";
 import { autenticarAluno } from "../db/aluno.js";
+import { autenticarAssistente } from "../db/assistente.js";
 
 const router = Router();
 
