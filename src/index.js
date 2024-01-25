@@ -15,12 +15,12 @@ app.use(alunoRouter);
 app.use(signatureRouter);
 app.use(loginRouter);
 
-app.get("/", (req, res) => {        
+app.get("*", (req, res) => {        
     res.json({
-        message: "Trabalho Final #04: https://github.com/Henrique-1961/back-end-tf-web",
+        message: "Trabalho Final #05: https://github.com/Henrique-1961/back-end-tf-web",
     });
 });
 
 app.listen(port, () => {
-    console.log(`Serviço escutando na porta:  ${port}`);
+    console.log(`App listening: http://localhost:${port}`);
 });

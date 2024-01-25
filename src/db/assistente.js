@@ -32,9 +32,10 @@ async function deleteAssistente(id) {
 
 async function insertAssistente(data) {
     const client = await connect();
-    const query = "INSERT INTO assistente (nome, email, senha) VALUES ($1, $2, $3) ";
+    const query = "INSERT INTO assistente (nome, email, senha) VALUES ($1, $2, $3) RETURNING id";
     const assistente = [data.nome, data.email, data.senha];
-    await client.query(query, assistente);
+    const res = await client.query(query, assistente);
+    return res.rows[0].id;
 }
 
 async function selectAssistente(id) {

@@ -26,18 +26,16 @@ CGAE - Listas Eletrônicas é um projeto com o intuito de digitalizar os sistema
 
 ## Endpoints da API
 
-### Raiz
-- **Descrição:** Traz informações relacionadas ao repositório do projeto.
-- **Endpoint:** https://tf-04.vercel.app/
-- **Tipo da requisição:** GET
+### URL DA API: https://tf-04.vercel.app
 
-### Login
-- **Descrição:** Realiza o login apartir das credenciais de algum aluno cadastrado.
-- **Endpoint:** https://tf-04.vercel.app/login
-- **Tipo da requisição:** POST
+### [POST] /login
+- **Descrição:** Realiza o login apartir das credenciais de algum aluno ou assistente cadastrados.
 - **body:**
 
-![body](./img/login.png)
+```json
+    "email": "email",
+    "senha": "senha"
+```
 
 - **Usuários default:**
     - **Aluno**
@@ -51,100 +49,160 @@ CGAE - Listas Eletrônicas é um projeto com o intuito de digitalizar os sistema
         "senha": "admin123"
         ```
 
-### Consultar Alunos
+---
+### [GET] /aluno
 - **Descrição:** Traz os dados de todos os alunos cadastrados no banco de dados.
-- **Endpoint:** https://tf-04.vercel.app/aluno
-- **Tipo da requisição:** GET
 - **headers:**
 
-![headers](./img/header.png)
+```js
+x-access-token: "token"
+```
 
-
-### Consultar Aluno
+---
+### [GET] /aluno/{id}
 - **Descrição:** Traz os dados de um aluno em específico.
-- **Endpoint:** https://tf-04.vercel.app/aluno/:id
-- **Tipo da requisição:** GET
 - **headers:**
 
-![headers](./img/header.png)
+```js
+x-access-token: "token"
+```
 
-### Cadastrar Aluno
+---
+### [POST] /aluno
 - **Descrição:** Insere um novo aluno no banco de dados.
-- **Endpoint:** https://tf-04.vercel.app/aluno
-- **Tipo da requisição:** POST
 - **headers:**
 
-![headers](./img/header.png)
+```js
+x-access-token: "token"
+```
 
 - **body:**
 
-![body](./img/insert-aluno.png)
+```json
 
-### Atualizar Aluno
+```
+
+---
+### [PATCH] /aluno
 - **Descrição:** Atualiza os dados de um aluno cadastrado.
-- **Endpoint:** https://tf-04.vercel.app/aluno
-- **Tipo da requisição:** PATCH
 - **headers:**
 
-![headers](./img/header.png)
+```js
+x-access-token: "token"
+```
 
 - **body:**
 
-![body](./img/update-aluno.png)
+```json
 
-### Excluir Aluno
+```
+
+---
+### [DELETE] /aluno
 - **Descrição:** Exclui um aluno cadastrado.
-- **Endpoint:** https://tf-04.vercel.app/aluno/:id
-- **Tipo da requisição:** DELETE
 - **headers:**
 
-![headers](./img/header.png)
+```js
+x-access-token: "token"
+```
 
-### Consultar Assinaturas
-- **Descrição:** Traz os dados de todas as assinaturas cadastradas no banco de dados.
-- **Endpoint:** https://tf-04.vercel.app/assinatura
-- **Tipo da requisição:** GET
+---
+### [GET] /assinatura/{lista}
+- **Descrição:** Traz os dados de todas as assinaturas de uma lista.
 - **headers:**
 
-![headers](./img/header.png)
+```js
+x-access-token: "token"
+```
 
+- **Observações:**
+Possíveis valores para o parâmetro lista
 
-### Consultar Assinatura
+```js
+vai_volta
+saida
+pernoite
+```
+
+---
+### [GET] /assinatura/{lista}/{id}
 - **Descrição:** Traz os dados de uma assinatura em específico.
-- **Endpoint:** https://tf-04.vercel.app/assinatura/:id
-- **Tipo da requisição:** GET
 - **headers:**
 
-![headers](./img/header.png)
+```js
+x-access-token: "token"
+```
 
-### Cadastrar Assinatura
+- **Observações:**
+Possíveis valores para o parâmetro lista
+
+```js
+vai_volta
+saida
+pernoite
+```
+
+---
+### [POST] /assinatura/{lista}
 - **Descrição:** Insere uma nova assinatura no banco de dados.
-- **Endpoint:** https://tf-04.vercel.app/assinatura
-- **Tipo da requisição:** POST
 - **headers:**
 
-![headers](./img/header.png)
+```js
+x-access-token: "token"
+```
+
+- **Observações:**
+Possíveis valores para o parâmetro lista
+
+```js
+vai_volta
+saida
+pernoite
+```
 
 - **body:**
 
-![body](./img/insert-assinatura.png)
+```json
 
-### Atualizar Assinatura
+```
+
+### [PATCH] /assinatura/{lista}/{id}
 - **Descrição:** Atualiza os dados de uma assinatura cadastrada.
-- **Endpoint:** https://tf-04.vercel.app/assinatura
-- **Tipo da requisição:** PATCH
 - **headers:**
 
-![headers](./img/header.png)
+```js
+x-access-token: "token"
+```
 
 - **body:**
 
-![body](./img/update-assinatura.png)
+```json
 
-### Excluir Assinatura
+```
+
+- **Observações:**
+Possíveis valores para o parâmetro lista
+
+```js
+vai_volta
+saida
+pernoite
+```
+
+---
+### [DELETE] /assinatura/{lista}/{id}
 - **Descrição:** Exclui uma assinatura cadastrada.
-- **Endpoint:** https://tf-04.vercel.app/assinatura/:id
-- **Tipo da requisição:** DELETE
 - **headers:**
 
-![headers](./img/header.png)
+```js
+x-access-token: "token"
+```
+
+- **Observações:**
+Possíveis valores para o parâmetro lista
+
+```js
+vai_volta
+saida
+pernoite
+```

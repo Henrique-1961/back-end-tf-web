@@ -37,16 +37,17 @@ async function selectSignature(id) {
     return res.rows;
 }
 
-async function updateSignature(data) {
-    const id = await insertSignature(data);
-    if(id !== undefined){
+async function updateSignature(id, data) {
+    const res = await insertSignature(data);
+
+    if (res !== undefined){
         const client = await connect();
-        const query = "UPDATE saida SET ativo = $1 WHERE id = $2";
-        await client.query(query, [false, id]);
+        const query = "UPDATE saida SET ativo = $1, pai = $2 WHERE id = $3";
+        await client.query(query, [false, res, id]);
         return true;
     }
 
     return false;
 }
 
-export { selectSignatures, selectSignature, insertSignature, deleteSignature, updateSignature };
+export default { selectSignatures, selectSignature, insertSignature, deleteSignature, updateSignature };

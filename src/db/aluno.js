@@ -32,9 +32,10 @@ async function deleteAluno(id) {
 
 async function insertAluno(data) {
     const client = await connect();
-    const query = "INSERT INTO aluno (nome, email, senha, cidade, responsavel, telefone_responsavel, ativo, pernoite) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) ";
+    const query = "INSERT INTO aluno (nome, email, senha, cidade, responsavel, telefone_responsavel, ativo, pernoite) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id";
     const aluno = [data.nome, data.email, data.senha, data.cidade, data.responsavel, data.telefone_responsavel, data.ativo, data.pernoite];
-    await client.query(query, aluno);
+    const res = await client.query(query, aluno);
+    return res.rows[0].id || undefined;
 }
 
 async function selectAluno(id) {
